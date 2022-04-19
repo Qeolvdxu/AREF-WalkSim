@@ -1,0 +1,334 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://textures/headstone.png" type="Texture" id=1]
+[ext_resource path="res://scenes/misc/UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://textures/mail.png" type="Texture" id=3]
+[ext_resource path="res://scenes/props/House.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/misc/MusicTrack.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/characters/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://textures/props/puddle_big.png" type="Texture" id=10]
+[ext_resource path="res://textures/props/puddle_small.png" type="Texture" id=11]
+[ext_resource path="res://scenes/characters/Npc.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/misc/Quest.tscn" type="PackedScene" id=14]
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.564087, 2.50995 ), Vector2( 0.564087, 4.44937 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0.944064 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.564087, 2.50995 ), Vector2( 0.564087, 4.44937 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0.944064 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.564087, 2.50995 ), Vector2( 0.564087, 4.44937 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0.944064 ) ]
+}
+
+[node name="Outside" type="Node"]
+
+[node name="puddle_big" type="Sprite" parent="."]
+position = Vector2( 661.445, 950.947 )
+texture = ExtResource( 10 )
+
+[node name="puddle_small" type="Sprite" parent="."]
+position = Vector2( 1329.08, 687.921 )
+scale = Vector2( 0.995735, 0.995735 )
+texture = ExtResource( 11 )
+
+[node name="puddle_small2" type="Sprite" parent="."]
+position = Vector2( 441.76, 1575.24 )
+scale = Vector2( 0.995735, 0.995735 )
+texture = ExtResource( 11 )
+
+[node name="puddle_big2" type="Sprite" parent="."]
+position = Vector2( 1782.78, 1096.72 )
+scale = Vector2( 1.97507, 1.97507 )
+texture = ExtResource( 10 )
+
+[node name="level" type="YSort" parent="."]
+position = Vector2( 208.024, -128.355 )
+
+[node name="Townsfolk" parent="level" instance=ExtResource( 13 )]
+position = Vector2( 1727.98, 1796.35 )
+character_name = "Townsfolk"
+
+[node name="Quest" parent="level/Townsfolk" instance=ExtResource( 14 )]
+quest_name = "Life as a Delivery Guy"
+required_amount = 3
+initial_text = "Are you from the Board of Aldermen? 
+Emily won't see anyone right now...
+Apparently she doesn't even have to pay taxes, due to her fathers previous donations.
+Hmm... do you smell lime?"
+pending_text = "Are you from the Board of Aldermen? 
+Emily won't see anyone right now...
+Apparently she doesn't even have to pay taxes, due to her fathers previous donations.
+Say... do you smell lime here also?"
+delivered_text = "ERROR"
+
+[node name="Townsfolk3" parent="level" instance=ExtResource( 13 )]
+position = Vector2( 1809.98, 544.355 )
+character_name = "Delivery Man"
+
+[node name="Quest" parent="level/Townsfolk3" instance=ExtResource( 14 )]
+quest_name = "Life as a Delivery Guy"
+required_amount = 3
+initial_text = "I worry for Emilys mental state, I just had to deliver a package of poison to her.
+She did not want to communicate what she was going to use it for. 
+We fear she may take her own life and end up in one of these graves."
+pending_text = "I worry for Emilys mental state, I just had to deliver a package of poison to her.
+She did not want to communicate what she was going to use it for. 
+We fear she may take her own life and end up in one of these graves."
+delivered_text = "ERROR"
+
+[node name="Townsfolk7" parent="level" instance=ExtResource( 13 )]
+position = Vector2( 2747.98, 564.355 )
+character_name = "Thinker"
+
+[node name="Quest" parent="level/Townsfolk7" instance=ExtResource( 14 )]
+quest_name = "Life as a Delivery Guy"
+required_amount = 3
+initial_text = "It is quite a sight to see such a prestigous family reduced to this.
+
+Both Miss Emily and Colonel Sartoris had rich and powerful families before the war.
+I guess they are just like us after all..."
+pending_text = "It is quite a sight to see such a prestigous family reduced to this.
+
+Both Miss Emily and Colonel Sartoris had rich and powerful families before the war.
+I guess they are just like us after all..."
+delivered_text = "ERROR"
+
+[node name="mail" parent="level" instance=ExtResource( 13 )]
+position = Vector2( 1318.98, 357.355 )
+scale = Vector2( 0.5, 0.5 )
+character_name = "Delivery Man"
+
+[node name="sprite" parent="level/mail" index="0"]
+position = Vector2( -6, 81 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 3 )
+
+[node name="anims" parent="level/mail" index="1"]
+anims/idle = SubResource( 3 )
+
+[node name="Quest" parent="level/mail" instance=ExtResource( 14 )]
+quest_name = "Life as a Delivery Guy"
+required_amount = 3
+initial_text = "*You snoop through Emilys mail*
+
+You find a letter about a purchase of a men's silver toilet set.
+
+You probably shouldn't have done that."
+pending_text = "*You snoop through Emilys mail*
+
+You find a letter about a purchase of a men's silver toilet set.
+
+You probably shouldn't have done that."
+delivered_text = "ERROR"
+
+[node name="Townsfolk5" parent="level" instance=ExtResource( 13 )]
+position = Vector2( 1015.98, 2463.35 )
+character_name = "Greeter"
+
+[node name="Quest" parent="level/Townsfolk5" instance=ExtResource( 14 )]
+quest_name = "Life as a Delivery Guy"
+required_amount = 3
+initial_text = "Hello and welcome to Jefferson!
+Everyone is here today to check on Emily after her father died.
+She barely interacts with anyone other than her servant.
+
+Personally, I think her family was changed after the Civil War."
+pending_text = "Hello and welcome to Jefferson!
+Everyone is here today to check on Emily after her father died.
+She barely interacts with anyone other than her servant.
+
+Personally, I think her family was changed after the Civil War."
+delivered_text = "ERROR"
+
+[node name="Townsfolk6" parent="level" instance=ExtResource( 13 )]
+position = Vector2( 721.976, 2048.35 )
+character_name = "Director"
+
+[node name="Quest" parent="level/Townsfolk6" instance=ExtResource( 14 )]
+quest_name = "Life as a Delivery Guy"
+required_amount = 3
+initial_text = "Have you seen that house up north?
+It looks way nicer than the other areas of this town.
+Someone important must live there."
+pending_text = "Have you seen that house up north?
+It looks way nicer than the other areas of this town.
+Someone important must live there."
+delivered_text = "ERROR"
+
+[node name="grave_1" parent="level" instance=ExtResource( 13 )]
+position = Vector2( 2448.98, 499.355 )
+scale = Vector2( 0.2, 0.2 )
+character_name = "Gravestone"
+
+[node name="sprite" parent="level/grave_1" index="0"]
+position = Vector2( 0.564087, 2.50995 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 1 )
+
+[node name="anims" parent="level/grave_1" index="1"]
+anims/idle = SubResource( 1 )
+
+[node name="Quest" parent="level/grave_1" instance=ExtResource( 14 )]
+quest_name = "Life as a Delivery Guy"
+required_amount = 3
+initial_text = "*You read the headstone*
+
+Here Lies Colonel Sartis, our former mayor"
+pending_text = "*You read the headstone*
+
+Here Lies Colonel Sartis, our former mayor"
+delivered_text = "ERROR"
+
+[node name="grave_2" parent="level" instance=ExtResource( 13 )]
+position = Vector2( 2127.98, 507.355 )
+scale = Vector2( 0.2, 0.2 )
+character_name = "Gravestone"
+
+[node name="sprite" parent="level/grave_2" index="0"]
+position = Vector2( 0.564087, 2.50995 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 1 )
+
+[node name="anims" parent="level/grave_2" index="1"]
+anims/idle = SubResource( 2 )
+
+[node name="trigger" parent="level/grave_2" index="2"]
+position = Vector2( -17.4561, 211.561 )
+scale = Vector2( 1, 1 )
+
+[node name="Quest" parent="level/grave_2" instance=ExtResource( 14 )]
+quest_name = "Life as a Delivery Guy"
+required_amount = 3
+initial_text = "*You read the headstone*
+
+Here lies Mr. Grierson, Emilys beloved father"
+pending_text = "*You read the headstone*
+
+Here lies Mr. Grierson, Emilys beloved father"
+delivered_text = "ERROR"
+
+[node name="Townsfolk2" parent="level" instance=ExtResource( 13 )]
+position = Vector2( 387.976, 620.355 )
+character_name = "Townsfolk"
+
+[node name="Quest" parent="level/Townsfolk2" instance=ExtResource( 14 )]
+quest_name = "Life as a Delivery Guy"
+required_amount = 3
+initial_text = "Poor Emily... 
+She has been spending time with Homer.
+It bothers me that she would throw away her familys pride like that."
+pending_text = "Poor Emily... 
+She has been spending time with Homer.
+It bothers me that she would throw away her familys pride like that."
+delivered_text = "ERROR"
+
+[node name="Character" parent="level" instance=ExtResource( 8 )]
+position = Vector2( 1509.86, 2579.34 )
+
+[node name="house" parent="level" instance=ExtResource( 5 )]
+position = Vector2( 964.976, 228.355 )
+to_scene = "res://scenes/levels/HouseInside.tscn"
+
+[node name="house_outside" type="Position2D" parent="level/house" groups=["spawnpoints"]]
+position = Vector2( -2.12201, 173.199 )
+
+[node name="Townsfolk4" parent="level" instance=ExtResource( 13 )]
+position = Vector2( 3679.95, 998.71 )
+character_name = "Delivery Man"
+
+[node name="Quest" parent="level/Townsfolk4" instance=ExtResource( 14 )]
+quest_name = "Life as a Delivery Guy"
+required_amount = 3
+initial_text = "I worry for Emilys mental state, I just had to deliver a package of poison to her.
+She did not want to communicate what she was going to use it for. We fear she may take her own life and end up in one of these graves,"
+pending_text = "I worry for Emilys mental state, I just had to deliver a package of poison to her.
+She did not want to communicate what she was going to use it for. We fear she may take her own life and end up in one of these graves,"
+delivered_text = "ERROR"
+
+[node name="music_track" parent="." instance=ExtResource( 6 )]
+music_track = "res://music/310-world-map-loop.ogg"
+
+[node name="UI" parent="." instance=ExtResource( 2 )]
+
+[editable path="level/mail"]
+[editable path="level/grave_1"]
+[editable path="level/grave_2"]
+[editable path="level/Townsfolk2"]
